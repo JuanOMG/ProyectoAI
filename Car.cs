@@ -13,13 +13,14 @@ public class Car : MonoBehaviour
 
     private void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal"); //entrada por teclado para el eje horizontal
+        float vertical = Input.GetAxis("Vertical");//entrada por teclado para el eje vertical
         float dt = Time.deltaTime;
         MoveCar(horizontal, vertical, dt);
         score += GetTrackIncrement();
     }
 
+//MOVIMIENTO DEL AUTO
     private  void MoveCar(float horizontal, float vertical, float dt)
     {
         // Traducido en la dirección en la que mira el coche

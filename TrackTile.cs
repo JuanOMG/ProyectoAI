@@ -6,7 +6,7 @@ public class TrackTile : MonoBehaviour
 {
     void OnDrawGizmosSelected()
     {
-            // Dibuja una línea azul desde esta transformación hasta el objetivo.
+// Dibuja una línea azul desde esta transformación hasta el objetivo.
             Gizmos.color = Color.green;
             Gizmos.DrawLine(
                 transform.position + Vector3.up * 2, 

@@ -65,16 +65,16 @@ public class CarAgent : Agent
     {
         var tf = transform;
     
-        // Get the start position of the ray
+        // Obtener la posición inicial del rayo
         var raySource = tf.position + Vector3.up / 2f; 
         const float RAY_DIST = 5f;
         var position = raySource + tf.forward * z + tf.right * x;
 
-        // Get the angle of the ray
+        // Obtener el ángulo del rayo
         var eulerAngle = Quaternion.Euler(0, angle, 0f);
         var dir = eulerAngle * tf.forward;
     
-        // See if there is a hit in the given direction
+        // Ver si hay un golpe en la dirección dada
         Physics.Raycast(position, dir, out var hit, RAY_DIST);
         return hit.distance >= 0 ? hit.distance / RAY_DIST : -1f;
     }
@@ -84,11 +84,11 @@ public class CarAgent : Agent
         int reward = 0;
         var carCenter = transform.position + Vector3.up;
 
-        // Find what tile I'm on
+        // Encuentra en qué sección estoy
         if (Physics.Raycast(carCenter, Vector3.down, out var hit, 2f))
         {
             var newHit = hit.transform;
-            // Check if the tile has changed
+            // Comprobar si la sección ha cambiado
             if (_track != null && newHit != _track)
             {
                 float angle = Vector3.Angle(_track.forward, newHit.position - _track.position);

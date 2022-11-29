@@ -22,11 +22,11 @@ public class Car : MonoBehaviour
 
     private  void MoveCar(float horizontal, float vertical, float dt)
     {
-        // Translated in the direction the car is facing
+        // Traducido en la dirección en la que mira el coche
         float moveDist = speed * vertical;
         transform.Translate(dt * moveDist * Vector3.forward);
 
-        // Rotate alongside it up axis 
+        // Gira a lo largo del eje hacia arriba
         float rotation = horizontal * torque * 90f;
         transform.Rotate(0f, rotation * dt, 0f);
     }
@@ -36,11 +36,11 @@ public class Car : MonoBehaviour
         int reward = 0;
         var carCenter = transform.position + Vector3.up;
 
-        // Find what tile I'm on
+        // Encuentra en qué sección estoy
         if (Physics.Raycast(carCenter, Vector3.down, out var hit, 2f))
         {
             var newHit = hit.transform;
-            // Check if the tile has changed
+            // Comprobar si la sección ha cambiado
             if (_track != null && newHit != _track)
             {
                 float angle = Vector3.Angle(_track.forward, newHit.position - _track.position);
